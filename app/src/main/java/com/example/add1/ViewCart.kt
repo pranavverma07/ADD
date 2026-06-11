@@ -319,23 +319,21 @@ fun ViewCart(
 
                 val am = Postselfmeds(medicineList)
                 if (shouldprescribe) {
-//                    toke =
-//                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NWMxZGNmYzA1NDAzMjZmMmM3YzdmMDMiLCJpYXQiOjE3MDc4MDk5MzUsImV4cCI6MTcwNzgyNzkzNX0.aMWXiDqET9tL3A4eauUTmLjP052tg7vv6gbbnkYiVxQ"
                     resp = ktorClient.postSelfMeds("selfPrescription", am, toke).toString()
-
+                    if (resp.contains("Added")) {
+                        Toast.makeText(context, "Prescribed Successfully", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(context, "Failed: $resp", Toast.LENGTH_SHORT).show()
+                    }
                 }
                 shouldprescribe = false
             }
 
         }
         Button(onClick = {
-
             shouldprescribe = true
-            Toast.makeText(context, "Prescribed Successfully", Toast.LENGTH_SHORT).show()
-
         }) {
             Text("Prescribe")
-
         }
         
 

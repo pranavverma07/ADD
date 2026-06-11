@@ -56,16 +56,11 @@ fun PatViewQR(toke:String) {
 
     LaunchedEffect(key1 = Unit) {
         patH = ktorClient.getHPatient("home", toke.toString())
-
     }
 
-    if(patH != null) {
-
-        val objid = patH?._id
-
-        LaunchedEffect(key1 = Unit) {
-            qr = objid?.let { ktorClient.getQR("viewDocPrescription/$it") }
-
+    LaunchedEffect(key1 = patH) {
+        patH?.let { hp ->
+            qr = ktorClient.getQR("viewDocPrescription/${hp._id}")
         }
     }
 

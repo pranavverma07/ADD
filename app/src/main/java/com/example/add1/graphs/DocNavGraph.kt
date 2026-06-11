@@ -38,6 +38,6 @@ sealed class DocScreen(val route: String) {
     object Choose : DocScreen(route = "LOGINAS")
     object Home : DocScreen(route = "DHOME")
     object SignUp : DocScreen(route = "DSIGN_UP")
-    object SignIn : Patscreen(route = "DSIGN_IN")
+    object SignIn : DocScreen(route = "DSIGN_IN")
     object Forgot : DocScreen(route = "FORGOT")
 }

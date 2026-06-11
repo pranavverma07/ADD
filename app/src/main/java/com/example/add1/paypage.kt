@@ -205,7 +205,7 @@ fun User_payment(
 
                 Button(
                     onClick = {
-
+                        navController.navigate(activescreen.viewqr.route)
                     },
                     modifier = Modifier.offset(x = 0.dp, y = 20.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9C9F)),
@@ -214,10 +214,7 @@ fun User_payment(
                 {
                     Text(text = "Proceed to Check-Out",
                         fontSize = 16.sp,
-                        color = Color.White,
-                        modifier = Modifier.clickable {
-                            navController.navigate(activescreen.viewqr.route)
-                        }
+                        color = Color.White
                     )
                 }
 

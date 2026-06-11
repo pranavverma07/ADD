@@ -144,7 +144,7 @@ fun AddMed(patid: String?, toke: String) {
                     }
                     val am = Postdocmeds(medicineList)
                     if (shouldPrescribe) {
-                        val resp = ktorClient.postMeds("312471", am, toke)
+                        val resp = ktorClient.postMeds(patid ?: "", am, toke)
                         if(resp.contains("Added"))
                         {
                             Toast.makeText(context, "Prescribed Successfully", Toast.LENGTH_SHORT).show()

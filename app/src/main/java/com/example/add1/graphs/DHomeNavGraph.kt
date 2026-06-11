@@ -60,27 +60,14 @@ fun NavGraphBuilder.addmNavGraph(navController: NavHostController,token: String)
         startDestination = addmscreen.addmedi.route
     ) {
         composable(route = addmscreen.addmedi.route + "/{patientId}",
-            arguments = listOf(
-                navArgument("patientId") { type = NavType.IntType }
-            )){
-
-            backStackEntry ->
-            val patientId = backStackEntry.arguments?.getInt("patientId")
-//            AddMedicine(patid = patientId!!) // Ensure patientId is not null
-//            AddMed()
-
-        }
-        composable(route = addmscreen.addmedi.route + "/{patientId}",
-            arguments = listOf(navArgument("patientId") {type  = NavType.StringType})
-            )
-        {
-
-            AddMed(it.arguments?.getString("patientId"),token)
+            arguments = listOf(navArgument("patientId") { type = NavType.StringType })
+        ) {
+            AddMed(it.arguments?.getString("patientId"), token)
         }
     }
 }
 
 sealed class addmscreen(val route: String) {
-    object addmedi : selfpscreen(route = "ADDMEDI")
-    object viewmedi : selfpscreen(route = "VIEWMEDI")
+    object addmedi : addmscreen(route = "ADDMEDI")
+    object viewmedi : addmscreen(route = "VIEWMEDI")
 }

@@ -198,8 +198,6 @@ fun User_signin(navController: NavHostController) {
             }
         }
 
-        Text(text = toke)
-
         Row {
             Text(
                 text = "Create one?",

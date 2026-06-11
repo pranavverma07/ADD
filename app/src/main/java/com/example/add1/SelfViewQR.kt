@@ -62,16 +62,11 @@ fun SelfiewQR(toke:String) {
 
     LaunchedEffect(key1 = Unit) {
         patH = ktorClient.getHPatient_("home_", toke.toString())
-
     }
 
-    if(patH != null) {
-
-        val objid = patH?._id
-
-        LaunchedEffect(key1 = Unit) {
-            qr = objid?.let { ktorClient.getQR("viewSelfPrescription/$it") }
-
+    LaunchedEffect(key1 = patH) {
+        patH?.let { hp ->
+            qr = ktorClient.getQR("viewSelfPrescription/${hp._id}")
         }
     }
 
@@ -147,8 +142,9 @@ fun SelfiewQR(toke:String) {
                             .offset(x = 10.dp,y = -50.dp)
                             .border(border = BorderStroke(1.3.dp,Color.Black), shape = RectangleShape)
                     )
-
-                    Toast.makeText(context, "Payment Successful", Toast.LENGTH_SHORT).show()
+                    LaunchedEffect(key1 = imageBitmap) {
+                        Toast.makeText(context, "Payment Successful", Toast.LENGTH_SHORT).show()
+                    }
                 }
 
 //            LazyColumn(modifier  = Modifier.offset(y = 80.dp)) {

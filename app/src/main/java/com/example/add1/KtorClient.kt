@@ -366,7 +366,6 @@ data class Medicine(
     val quantity: Int
 )
 
-@Serializable
 data class MutableCoffee(
     val name: MutableState<String>,
     val mg: MutableState<String>,
@@ -384,7 +383,6 @@ data class Coffee(
     val time: String
 )
 
-@Serializable
 data class ListCoffee(
     val mutableCoffees: List<MutableCoffee>
 )
@@ -427,7 +425,6 @@ data class DBMedicine(
 //    val mg: MutableState<String>,
 //    val quantity: MutableState<String>
 //)
-@Serializable
 data class Talbet(
     val name: String,
     val mg: String,
@@ -435,7 +432,6 @@ data class Talbet(
     val price:String,
     val totalprice: MutableState<Int>
 )
-@Serializable
 data class Tablet(
     val name: MutableState<String>,
     val mg: MutableState<String>,

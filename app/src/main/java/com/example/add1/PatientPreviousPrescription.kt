@@ -146,17 +146,14 @@ fun User_prescriptions(navController: NavHostController,toke:String) {
 
                 Button(
                     onClick = {
-
+                        navController.navigate(activescreen.viewcart.route)
                     },
                     modifier = Modifier.offset(x = 0.dp, y = 170.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFFF9C9F)),
                     shape = RoundedCornerShape(16.dp)
                 )
                 {
-                    Text(text = "Pay Now",
-                        modifier = Modifier.clickable {
-                            navController.navigate(activescreen.viewcart.route)
-                        })
+                    Text(text = "Pay Now")
                 }
             }
         }
